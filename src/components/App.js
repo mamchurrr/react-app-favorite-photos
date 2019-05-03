@@ -1,9 +1,17 @@
 import React from 'react';
 import './App.scss'
 
+import Header from './Header'
+import Router from './Router'
+import Footer from './Footer'
+
 function App() {
   return (
-      <h1> Hello </h1>
+    <div className="App">
+      <Header />
+      <Router />
+      <Footer />          
+    </div>
   );
 }
 
