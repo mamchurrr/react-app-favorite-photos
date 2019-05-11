@@ -4,12 +4,16 @@ import './App.scss'
 import Header from './Header'
 import Router from './Router'
 import Footer from './Footer'
+import Sidebar from './Sidebar'
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Router />
+      <div className="container">
+        <Router />
+        <Sidebar />
+      </div>
       <Footer />          
     </div>
   );
