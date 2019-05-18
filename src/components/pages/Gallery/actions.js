@@ -1,0 +1,1 @@
+export const addImgAction = image => ({ type: 'ADD_IMG', image})
