@@ -1,21 +1,32 @@
 const initialState = {
-    photos: [
-        {id: 1, name: 'Image-1'},
-        {id: 2, name: 'Image-2'},
-        {id: 3, name: 'Image-3'},
-        {id: 4, name: 'Image-4'}
-    ],
-}
+  photos: [],
+  isLoad: false,
+  isFail: false,
+};
 
 export default function (state = initialState, action) {
-    console.log("GALERY_REDUCER", action.image)
-    switch (action.type) {
-        case "ADD_IMG":
-            return {
-                ...state,
-                photos: [...state.photos, action.image]
-            }
-        default: return state
-    }
-    
+  switch (action.type) {
+    case 'START_FETCH_PHOTOS':
+      return {
+        ...state,
+        isLoad: true,
+      };
+    case 'SACCES_FETCH_PHOTOS':
+      return {
+        ...state,
+        photos: action.photos,
+      };
+    case 'FAIL_FETCH_PHOTOS':
+      return {
+        ...state,
+        isFail: true,
+      };
+    case 'STOP_FETCH_PHOTOS':
+      return {
+        ...state,
+        isLoad: false,
+      };
+
+    default: return state;
+  }
 }

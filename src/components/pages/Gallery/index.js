@@ -1,32 +1,39 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { addImgAction } from './actions'
+/* eslint-disable camelcase */
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchPhotosAction } from './actions';
+// import { dispatch } from 'rxjs/internal/observable/pairs';
 
-const Gallery = ({photos, addImg}) => {
-    const list = photos.map(({id, name}) => <li key={id}> {name} </li>)
-    const add = () => {
-        const id = photos[photos.length-1]['id'] + 1
-        const image = { id, name: `image-${id}` }
-        addImg(image)
-    }
-    return (
-        <div id="gallery" className="page">
-            <div className="page__wrap">
-                <h1>Gallery</h1>
-                <ul>
-                    {list}
-                </ul>
-                <input type='button' onClick={add} value="add image" />
-            </div>
-        </div>
-    )
+function Gallery(props) {
+  const { photos, fetchPhotos } = props;
+
+  useEffect(() => {
+    fetchPhotos();
+  }, [fetchPhotos]);
+
+  const list = photos.map(({ id, created_at }) => (
+    <li key={id}>
+      {created_at}
+    </li>
+  ));
+
+  return (
+    <div id="gallery" className="page">
+      <div className="page__wrap">
+        <h1>Gallery</h1>
+        <ul>
+          {list}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 const mapStateToProps = ({ gallery: { photos } }) => ({
-    photos
-})
+  photos,
+});
 const mapDispatchToProps = {
-    addImg: addImgAction
-}
+  fetchPhotos: fetchPhotosAction,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery)
+export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

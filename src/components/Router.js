@@ -8,12 +8,12 @@ import Contacts from './pages/Contacts';
 
 
 export default function () {
-    return (
-        <Switch>
-            <Route exact path='/' component={ Home } />
-            <Route path='/gallery' component={ Gallery } />
-            <Route path='/photo' component={ Photo } />
-            <Route path='/contacts' component={ Contacts } />
-        </Switch>
-    )
+  return (
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/gallery" component={Gallery} />
+      <Route path="/photo" component={Photo} />
+      <Route path="/contacts" component={Contacts} />
+    </Switch>
+  );
 }

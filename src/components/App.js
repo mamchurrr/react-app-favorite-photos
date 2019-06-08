@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.scss'
+import './App.scss';
 
-import Header from './Header'
-import Router from './Router'
-import Footer from './Footer'
-import Sidebar from './Sidebar'
+import Header from './Header';
+import Router from './Router';
+import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Router />
         <Sidebar />
       </div>
-      <Footer />          
+      <Footer />
     </div>
   );
 }
